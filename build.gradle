@@ -9,6 +9,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id "org.sonarqube" version "3.4.0.2513"
 }
 
 repositories {
@@ -36,4 +37,11 @@ tasks.named('test') {
 
 run {
     standardInput = System.in
+}
+sonarqube {
+  properties {
+    property "sonar.projectKey", "akshay4850_assignment"
+    property "sonar.organization", "akshay4850"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
